@@ -1,10 +1,10 @@
 require 'pry'
 class Translator
-  attr_reader :word, :translation_hash
+  attr_reader :word, :braille_hash
 
   def initialize(word)
-    @word = word
-    @translation_hash = { 'a' => "0.\n..\n..",
+    @word = word.downcase
+    @braille_hash = { 'a' => "0.\n..\n..",
                           'b' => "0.\n0.\n..",
                           'c' => "00\n..\n..",
                           'd' => "00\n.0\n..",
@@ -29,13 +29,28 @@ class Translator
                           'w' => ".0\n00\n.0",
                           'x' => "00\n..\n00",
                           'y' => "00\n.0\n00",
-                          'z' => "0.\n.0\n00" }
+                          'z' => "0.\n.0\n00",
+                          ' ' => "..\n..\n.."}
   end
   def translate
-    binding.pry
-    split_word = @word.split
+    split_word = @word.scan(/./)
+    line1 = []
+    line2 = []
+    line3 = []
     split_word.each do |letter|
-      print @trasnlation_hash[letter] if @trasnlation_hash.include?(letter)
+        if braille_hash.include?(letter)
+            line_storage = braille_hash[letter].split("\n")
+            line1 << line_storage[0]
+            line2 << line_storage[1]
+            line3 << line_storage[2]
+        end
     end
+    braille_word = ""
+    while line1.length > 0
+        braille_word += (line1.shift(80).join() + "\n" + line2.shift(80).join() + "\n" + line3.shift(80).join()) 
+        braille_word += "\n" if line1.length > 0
+    end
+    braille_word
+    binding.pry
   end
 end
