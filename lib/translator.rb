@@ -51,6 +51,5 @@ class Translator
         braille_word += "\n" if line1.length > 0
     end
     braille_word
-    binding.pry
   end
 end
