@@ -47,7 +47,7 @@ class Translator
     end
     braille_word = ""
     while line1.length > 0
-        braille_word += (line1.shift(80).join() + "\n" + line2.shift(80).join() + "\n" + line3.shift(80).join()) 
+        braille_word += (line1.shift(20).join() + "\n" + line2.shift(20).join() + "\n" + line3.shift(20).join()) 
         braille_word += "\n" if line1.length > 0
     end
     braille_word

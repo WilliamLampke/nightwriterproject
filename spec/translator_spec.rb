@@ -1,5 +1,5 @@
 require 'translator'
-
+require 'night_writer'
 RSpec.describe Translator do
   before(:all) do
     @translator = Translator.new('Hello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello World')
