@@ -32,6 +32,7 @@ class Translator
                       'z' => "0.\n.0\n00",
                       ' ' => "..\n..\n.." }
   end
+
   def translate
     line1 = line_store[0]
     line2 = line_store[1]
@@ -43,6 +44,7 @@ class Translator
     end
     braille_word
   end
+
   def line_store
     split_word = @word.scan(/./)
     line1 = []
