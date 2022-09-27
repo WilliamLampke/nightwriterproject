@@ -44,12 +44,15 @@ class Detranslator
         line1 = lines[line_count]
         line2 = lines[line_count + 1]
         line3 = lines[line_count + 2]
+        line_count += 3
         while line3.length > 0
             word = ""
-            word.append(line1[0..2])
-            word.append(line[0..2])
-            word.append 
+            word += (line1.slice!(0..1))
+            word += (line2.slice!(0..1))
+            word += (line3.slice!(0..1))
+            final_print += braille_hash[word]
         end
     end
+    final_print
   end
 end

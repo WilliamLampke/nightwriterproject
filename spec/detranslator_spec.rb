@@ -15,11 +15,12 @@ RSpec.describe Detranslator do
 ..00.0000..000.00.0..0..00.0000..000.00.
 ...00.0.0.......0.0.0....00.0.0.......0.
 0.0....00.0.0.00
-0..0..00.0000..0")
+0..0..00.0000..0
+0.0....00.0.0...")
   end
   describe 'Detranslator' do
     it 'can detranslate braille into engilish' do
-      expected = 'Hello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello World'
+      expected = 'hello worldhello worldhello worldhello worldhello worldhello worldhello worldhello world'
       expect(@detranslator.translate).to eq(expected)
     end
   end
