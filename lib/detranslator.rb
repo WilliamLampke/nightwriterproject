@@ -6,7 +6,7 @@ class Detranslator
 
   def initialize(braille)
     @braille = braille
-    @braille_hash = { "0.\n..\n.." => 'a',
+    @braille_hash = { "0....." => 'a',
         "0.0..." => 'b',
         "00...." => 'c',
         "00.0.." => 'd',
@@ -34,9 +34,22 @@ class Detranslator
         "0..000" => 'z',
         "......" => ' '
      }
-    binding.pry
   end
 
   def translate
+    final_print = ""
+    line_count = 0
+    lines = @braille.split
+    while lines.length > line_count
+        line1 = lines[line_count]
+        line2 = lines[line_count + 1]
+        line3 = lines[line_count + 2]
+        while line3.length > 0
+            word = ""
+            word.append(line1[0..2])
+            word.append(line[0..2])
+            word.append 
+        end
+    end
   end
 end
