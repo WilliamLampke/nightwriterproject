@@ -51,5 +51,5 @@ class Detranslator
       end
     end
     final_print
-  end
+  endg
 end

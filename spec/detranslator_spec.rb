@@ -1,4 +1,5 @@
 require 'detranslator'
+require 'spec_helper'
 RSpec.describe Detranslator do
   before(:all) do
     @detranslator = Detranslator.new("0.0.0.0.0....00.0.0.000.0.0.0.0....00.0.
