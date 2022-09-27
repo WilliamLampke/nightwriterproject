@@ -51,4 +51,18 @@ class Translator
     end
     braille_word
   end
+  def line_store
+    split_word = @word.scan(/./)
+    line1 = []
+    line2 = []
+    line3 = []
+    split_word.each do |letter|
+      next unless braille_hash.include?(letter)
+      line_storage = braille_hash[letter].split("\n")
+      line1 << line_storage[0]
+      line2 << line_storage[1]
+      line3 << line_storage[2]
+    end
+    binding.pry
+  end
 end
