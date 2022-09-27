@@ -11,6 +11,19 @@ RSpec.describe Translator do
 ....0.0.0....00.0.0..."
       expect(translator1.translate).to eq(expected1)
     end
+    it 'can work with differnt words' do
+      translator2 = Translator.new('My Name is William Lampke I am from Charlotte North Carolina')
+      expected = '0000..000.000....0.0...0.00.0..00.00..0.
+...0...0.....0..0.0...000.0.0.0.......0.
+0.00..0...0.......0....0..0.0.....0...0.
+0.00000.0....0..0.00..000.0.00..000.0.0.
+....0....0..0.........0.00.0......00..00
+..0.0.0...........0.....0.0.0.........0.
+0.0..0.00...000.0..00...000.0.0.0..0000.
+0..00000.0...0.0000000......00.00.0..0..
+0.0.0.0.....0.0.0.0.........0.0.0...0...'
+      expect(translator2.translate).to eq(expected)
+    end
     it 'can split lines longer than 20 characters' do
       expected2 = "0.0.0.0.0....00.0.0.000.0.0.0.0....00.0.
 00.00.0..0..00.0000..000.00.0..0..00.000
