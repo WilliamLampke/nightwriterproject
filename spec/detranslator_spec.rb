@@ -29,5 +29,17 @@ RSpec.describe Detranslator do
       expected = 'hello worldhello worldhello worldhello worldhello worldhello worldhello worldhello world'
       expect(@detranslator.translate).to eq(expected)
     end
+    it 'can do differnt words' do
+      detranslator2 = Detranslator.new("0000..000.000....0.0...0.00.0..00.00..0.
+...0...0.....0..0.0...000.0.0.0.......0.
+0.00..0...0.......0....0..0.0.....0...0.
+0.00000.0....0..0.00..000.0.00..000.0.0.
+....0....0..0.........0.00.0......00..00
+..0.0.0...........0.....0.0.0.........0.
+0.0..0.00...000.0..00...000.0.0.0..0000.
+0..00000.0...0.0000000......00.00.0..0..
+0.0.0.0.....0.0.0.0.........0.0.0...0...")
+      expect(detranslator2.translate).to eq('my name is william lampke i am from charlotte north carolina')
+    end
   end
 end
