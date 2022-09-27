@@ -32,7 +32,6 @@ class Translator
                       'z' => "0.\n.0\n00",
                       ' ' => "..\n..\n.." }
   end
-
   def translate
     split_word = @word.scan(/./)
     line1 = []

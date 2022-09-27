@@ -1,5 +1,4 @@
 require 'detranslator'
-require './spec/spec_helper'
 RSpec.describe Detranslator do
   before(:all) do
     @detranslator = Detranslator.new("0.0.0.0.0....00.0.0.000.0.0.0.0....00.0.
@@ -19,9 +18,12 @@ RSpec.describe Detranslator do
 0.0....00.0.0...")
   end
   describe 'Detranslator' do
-    it 'can translate simple braille'do
-    detranslator1 = Translator.new()
-  end
+    it 'can translate simple braille' do
+      detranslator1 = Detranslator.new("0.0.0.0.0....00.0.0.00
+00.00.0..0..00.0000..0
+....0.0.0....00.0.0...")
+      expect(detranslator1.translate).to eq('hello world')
+    end
     it 'can detranslate long multi section braille into engilish' do
       expected = 'hello worldhello worldhello worldhello worldhello worldhello worldhello worldhello world'
       expect(@detranslator.translate).to eq(expected)
