@@ -57,6 +57,5 @@ class Translator
       line3 << line_storage[2]
     end
     all_lines << line1 << line2 << line3
-    binding.pry
   end
 end
