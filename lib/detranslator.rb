@@ -1,5 +1,3 @@
-#need to do similar line thing to the 80 line thing in translater 2 indexing 
-
 require 'pry'
 class Detranslator
   attr_reader :braille, :braille_hash
