@@ -30,4 +30,10 @@ RSpec.describe Translator do
       expect(@translator.translate).to eq(expected2)
     end
   end
+  describe 'line_store' do
+    it 'can store the translation as 3 seprate lines' do
+      translator = Translator.new("Hello World")
+      expect(translator.line_store[0]).to eq(["0.", "0.", "0.", "0.", "0.", "..", ".0", "0.", "0.", "0.", "00"])
+    end
+  end
 end

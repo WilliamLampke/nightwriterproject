@@ -33,17 +33,9 @@ class Translator
                       ' ' => "..\n..\n.." }
   end
   def translate
-    split_word = @word.scan(/./)
-    line1 = []
-    line2 = []
-    line3 = []
-    split_word.each do |letter|
-      next unless braille_hash.include?(letter)
-      line_storage = braille_hash[letter].split("\n")
-      line1 << line_storage[0]
-      line2 << line_storage[1]
-      line3 << line_storage[2]
-    end
+    line1 = line_store[0]
+    line2 = line_store[1]
+    line3 = line_store[2]
     braille_word = ''
     while line1.length > 0
       braille_word += (line1.shift(20).join + "\n" + line2.shift(20).join + "\n" + line3.shift(20).join)
@@ -56,6 +48,7 @@ class Translator
     line1 = []
     line2 = []
     line3 = []
+    all_lines = []
     split_word.each do |letter|
       next unless braille_hash.include?(letter)
       line_storage = braille_hash[letter].split("\n")
@@ -63,6 +56,7 @@ class Translator
       line2 << line_storage[1]
       line3 << line_storage[2]
     end
+    all_lines << line1 << line2 << line3
     binding.pry
   end
 end
